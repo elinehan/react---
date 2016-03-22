@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="browser.min.js"></script>
+  </head>
+  <body>
+    <div id="btn"></div>
+    <script type="text/babel">
+    var SwitchBtn = React.createClass({
+      getInitialState: function(){
+        return {on:false};
+      },
+
+      handleClick:function(){
+        this.setState({on:!this.state.on});
+      },
+
+      render:function() {
+        var cls = this.state.on?'switchBtn on':'switchBtn';
+        return <span className={cls} onClick={this.handleClick}></span>
+      }
+    });
+
+    ReactDOM.render(
+      <SwitchBtn />,
+      document.getElementById('btn')
+    );
+    </script>
+  </body>
+</html>
